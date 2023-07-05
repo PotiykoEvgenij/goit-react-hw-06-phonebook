@@ -1,11 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/Contacts/filterSlice';
 import PropTypes from 'prop-types';
 import styles from './ContactFilter.module.css'
 
-export const ContactFilter = ({ filter, setFilter }) => {
-    const handleFilterChange = (e) => {
-    setFilter(e.target.value);
-    };
+export const ContactFilter = ({ filter }) => {
+  const dispatch = useDispatch();
+
+  const handleFilterChange = (e) => {
+    dispatch(setFilter(e.target.value));
+  };
     
   return (
     <div>

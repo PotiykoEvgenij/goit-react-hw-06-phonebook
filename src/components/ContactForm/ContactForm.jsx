@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
+import { addContact } from 'redux/Contacts/contactsSlice';
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css'
 
-export const ContactForm = ({ contacts, setContacts }) => {
+export const ContactForm = () => {
+    const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
@@ -13,15 +16,6 @@ export const ContactForm = ({ contacts, setContacts }) => {
       if (name.trim() === '' || number.trim() === '') {
       alert('Please enter name and number');
       return;
-      }
-      
-      const existingContact = contacts.find(
-      (contact) => contact.name.toLowerCase() === name.toLowerCase()
-    );
-
-    if (existingContact) {
-      alert(`${name} is already in contacts`);
-      return;
     }
 
     const newContact = {
@@ -29,8 +23,9 @@ export const ContactForm = ({ contacts, setContacts }) => {
       name,
       number,
     };
+    
+    dispatch(addContact(newContact));
 
-    setContacts((prevContacts) => [...prevContacts, newContact]);
     setName('');
     setNumber('');
   };
