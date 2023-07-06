@@ -23,7 +23,7 @@ export const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm contacts={contacts} handleAddContact={handleAddContact} />
+      <ContactForm contacts={contacts} addContact={handleAddContact} />
       <h2>Contacts</h2>
       <ContactsFilter filter={filter} setFilter={setFilter}/>
       {contacts.length > 0 ? (
