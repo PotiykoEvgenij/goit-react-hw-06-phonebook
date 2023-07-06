@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { addContact } from 'redux/Contacts/contactsSlice';
+// import { addContact } from 'redux/Contacts/contactsSlice';
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css'
 
-export const ContactForm = () => {
-    const dispatch = useDispatch();
+export const ContactForm = ({ addContact }) => {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
@@ -24,7 +23,7 @@ export const ContactForm = () => {
       number,
     };
     
-    dispatch(addContact(newContact));
+    addContact(newContact);
 
     setName('');
     setNumber('');
@@ -65,5 +64,5 @@ export const ContactForm = () => {
 
 ContactForm.propTypes = {
   contacts: PropTypes.array.isRequired,
-  setContacts: PropTypes.func.isRequired,
+  addContact: PropTypes.func.isRequired,
 };
