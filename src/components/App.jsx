@@ -5,7 +5,7 @@ import { ContactList } from "./ContactList/ContactList";
 import { ContactsFilter } from "./ContactFilter/ContactFilter";
 import { addContact, deleteContact } from "redux/Contacts/contactsSlice";
 import { selectContacts, selectFilteredName } from "redux/selectors";
-import { setFilter } from "redux/Contacts/filterSlice";
+import { setFilter } from "../redux/Contacts/filterSlice";
 
 export const App = () => {  
   const dispatch = useDispatch();

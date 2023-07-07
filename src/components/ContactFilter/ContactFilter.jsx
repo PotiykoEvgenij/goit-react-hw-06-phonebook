@@ -9,7 +9,7 @@ export const ContactsFilter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilteredName);
 
-  const handleFilterChange = (e) => {
+  const handleSetFilter = (e) => {
     dispatch(setFilter(e.target.value));
   };
     
@@ -22,7 +22,7 @@ export const ContactsFilter = () => {
           type="text"
           placeholder="Search contacts"
           value={filter}
-          onChange={handleFilterChange}
+          onChange={handleSetFilter}
         />
         </label>
     </div>
@@ -30,6 +30,5 @@ export const ContactsFilter = () => {
 };
 
 ContactsFilter.propTypes = {
-  filter: PropTypes.string.isRequired,
   setFilter: PropTypes.func.isRequired,
 };
